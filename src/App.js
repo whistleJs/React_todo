@@ -16,13 +16,13 @@ class App extends Component {
     ]
   }
 
-  handleChange(e) {
+  handleChange = (e) => {
     this.setState({
       input: e.target.value
     });
   }
 
-  handleCreate() {
+  handleCreate = () => {
     const { input, todos } = this.state;
 
     this.setState({
@@ -35,14 +35,14 @@ class App extends Component {
     });
   }
 
-  handleKeyPress(e) {
+  handleKeyPress = (e) => {
     if (e.key == 'Enter') {
       this.handleCreate();
     }
   }
 
   render() {
-    const { input } = this.state;
+    const { input, todos } = this.state;
     const {
       handleChange,
       handleCreate,
@@ -58,7 +58,7 @@ class App extends Component {
           onCreate={handleCreate}
         />
       )}>
-        <TodoItemList />
+        <TodoItemList todos={todos} />
       </TodoListTemplate>
     )
   }
